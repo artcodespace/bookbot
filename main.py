@@ -12,9 +12,17 @@ def count_letters(text):
     return letter_count
 
 def main():
-    with open("books/frankenstein.txt") as f:
+    path = "books/frankenstein.txt"
+    print(f"--- Begin report of {path}")
+    with open(path) as f:
         file_contents = f.read()
-        print(count_letters(file_contents))
+
+        print(f"{count_words(file_contents)} words found in the document\n")
+        char_count = count_letters(file_contents)
+        for char in char_count:
+            if char.isalpha():  
+                print(f"The '{char}' character was found {char_count[char]} times")
+
 
 main()
 
